@@ -1,0 +1,128 @@
+@font-face {
+  font-family: poppins_regular;
+  src: url(../fonts/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: poppins_medium;
+  src: url(../fonts/Poppins-Medium.ttf);
+}
+@font-face {
+  font-family: poppins_semibold;
+  src: url(../fonts/Poppins-SemiBold.ttf);
+}
+@font-face {
+  font-family: poppins_bold;
+  src: url(../fonts/Poppins-bold.ttf);
+}
+@font-face {
+  font-family: poppins_black;
+  src: url(../fonts/Poppins-Black.ttf);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :has(:target) {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+
+:root {
+  font-size: 62.5%;
+  font-family: poppins;
+  --main-color: #e7d21a;
+  --bg-color: #00010c;
+  --translate-bar: translateX(0%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  text-wrap: balance;
+  font-family: poppins_semibold;
+}
+
+h1 {
+  padding-top: 8vw;
+  font-size: clamp(7.3rem, 5rem + 7.1875vw, 23.4rem);
+  color: var(--main-color);
+  letter-spacing: -2px;
+  line-height: 95%;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-family: poppins_black;
+  position: relative;
+  max-width: 12ch;
+}
+
+h1 span {
+  color: transparent;
+  -webkit-text-stroke-width: 5px;
+  -webkit-text-stroke-color: var(--main-color);
+}
+
+h2 {
+  color: var(--main-color);
+  font-size: 2.8rem;
+}
+
+p {
+  font-size: clamp(1.6rem, 1.43rem + 0.5357vw, 2.8rem);
+}
+
+.scrollbar {
+  width: 8px;
+  background-color: #1f202c3a;
+  height: 100svh;
+  position: fixed;
+  right: 0;
+  z-index: 4;
+}
+
+.scrollbar_inner {
+  position: absolute;
+  top: 0;
+  background-color: #9f921c;
+  /* scale: 1 0; */
+  transform-origin: top;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  border-radius: 0 0 10px 10px;
+
+  animation: newscrollbar linear;
+  animation-timeline: scroll();
+}
+
+@keyframes newscrollbar {
+  from {
+    scale: 1 0;
+    opacity: 0.1;
+  }
+  to {
+    scale: 1 1;
+    opacity: 0.5;
+  }
+}
